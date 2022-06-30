@@ -73,16 +73,17 @@ cook_book = {'Запеченный картофель': [{'ingredient_name': 'К
  # задача 2
 
 def get_shop_list_by_dishes(dishes, person_count):
-
-    
+    cook_dict = {}
+        
+   
     for dish in dishes:
         
         
         if dish in cook_book.keys():
-            cook_dict = {}
+            
             for ingredients in cook_book[dish]:
 
-                ingredients['quantity'] = ingredients['quantity'] * person_count
+                ingredients['quantity'] = int(ingredients['quantity']) * person_count
                 cook_dict[ingredients['ingredient_name']] = {'quantity': ingredients['quantity'],
                                                               'measure': ingredients['measure']}
 
@@ -92,4 +93,4 @@ def get_shop_list_by_dishes(dishes, person_count):
 
 
 
-pprint(get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2))
+pprint(get_shop_list_by_dishes(['Запеченный картофель', 'Фахитос', 'Фахитос', 'Пиво', 'Раки', 'Омлет'], 2))
